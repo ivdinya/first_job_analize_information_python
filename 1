@@ -1,0 +1,33 @@
+def binar(first_chislo, second_chislo):
+    if first_chislo == 0:
+        return second_chislo
+    if second_chislo == 0:
+        return first_chislo
+    if first_chislo == second_chislo:
+        return first_chislo
+    if second_chislo == first_chislo:
+        return second_chislo
+    if first_chislo == 1:
+        return 1
+    if second_chislo == 1:
+        return 1
+
+    if (first_chislo & 1) == 0 and (second_chislo & 1) == 0:
+        return 2 * binar(first_chislo >> 1, second_chislo >> 1)
+
+    if (first_chislo & 1) == 0 and (second_chislo & 1) != 0:
+        return binar(first_chislo >> 1, second_chislo)
+
+    if (first_chislo & 1) != 0 and (second_chislo & 1) == 0:
+        return binar(first_chislo, second_chislo >> 1)
+
+    if (first_chislo & 1) != 0 and (second_chislo & 1) != 0 and first_chislo > second_chislo:
+        return binar(second_chislo, (first_chislo-second_chislo) >> 1)
+
+    if (first_chislo & 1) != 0 and (second_chislo & 1) != 0 and first_chislo < second_chislo:
+        return binar((second_chislo - first_chislo) >> 1, first_chislo)
+
+a = 1234567890
+b = 8
+c = binar(a,b)
+print(c)
