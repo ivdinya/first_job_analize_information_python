@@ -1,0 +1,12 @@
+def iskl(first, second):
+    first_stroka = str(first)
+    
+    if len(first_stroka) != 10 :
+        return "Твое число не десятизначное ("
+
+    for i in first_stroka:
+        if not i.isdigit():
+            return "Не подходящий символ ("
+
+    return binar(int(first),int(second))
+
