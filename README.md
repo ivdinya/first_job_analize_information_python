@@ -1,0 +1,1 @@
+# first_job_analize_information_python
