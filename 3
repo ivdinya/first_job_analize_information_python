@@ -1,0 +1,17 @@
+def povtor(stroka):
+    glass = "aeiouAEIOU"
+    result = ""
+    rano = ""
+
+
+    for i in stroka:
+        if i in glass and i == rano:
+            continue
+        result += i
+        rano = i
+
+    return result
+
+
+str = input()
+print(povtor(str))
