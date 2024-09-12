@@ -1,0 +1,17 @@
+def fibonacci_partial_sums(N):
+    
+    a, b = 0, 1
+    partial_sum = 0
+
+    for _ in range(N):
+        partial_sum += a
+        yield partial_sum
+        a, b = b, a + b
+
+
+
+N = 10  
+fib_sums_iterator = fibonacci_partial_sums(N)
+
+
+print(list(fib_sums_iterator))
