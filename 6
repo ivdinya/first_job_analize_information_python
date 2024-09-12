@@ -1,0 +1,15 @@
+def complex_chisla(my_chisla):
+    complex_numbers = []
+    for massivi in my_chisla:
+        for complex_ch in massivi:
+            if isinstance(complex_ch,complex):
+                complex_numbers.append(complex_ch)
+
+    return tuple(complex_numbers)
+
+my_chisla = [[0,3,4.5,5+2j],
+             [2,11,1+3j,33.5],
+             [10+2j,34,1.3,90]
+]
+marka = complex_chisla(my_chisla)
+print(marka)
