@@ -1,0 +1,23 @@
+
+
+def fibonacci_partial_sums(N):
+
+    a, b = 0, 1
+    partial_sum = 0
+
+    for _ in range(N):
+        partial_sum += a
+        yield partial_sum
+        a, b = b, a + b
+
+
+N = int(input())
+fib_sums_iterator = fibonacci_partial_sums(N)
+
+
+p = list(fibonacci_partial_sums(N*10))
+for i in range(len(p)):
+    if len(str(p[i])) > N:
+        print("Индекс: ", i)
+        print("Значение: ", p[i])
+        break
