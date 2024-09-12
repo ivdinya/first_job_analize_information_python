@@ -11,15 +11,27 @@ def is_prime(n):
             return False
     return True
 
+def blizko(b):
+    if b <= 0:
+        return b
+    if b <= 1:
+        return 2
+
+    lower = b
+    up = b
+
+    while True:
+        if is_prime(lower):
+            return lower
+        if is_prime(up):
+            return up
+        lower -= 1
+        up += 1
 
 
 
+a = input("Введите свое число: ")
+b = int(a)
+c = blizko(b)
 
-
-
-a = (i for i in range(1,1000))
-for i in a:
-    if is_prime(i) == False:
-        continue
-    if is_prime(i) == True:
-        print("Простое число:",i,"","Ближайшее натуральное число: ", i-1)
+print(a,c)
