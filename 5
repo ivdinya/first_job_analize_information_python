@@ -1,9 +1,16 @@
+
 inputs = [1,2,3,4,5,6,7,8,9]
 out = [2,2,3,3,5,5,7,7,7]
 
 
 for i in range(len(inputs)):
-    if blizko(inputs[i]) == out[i]:
-        print("Входящий:",inputs[i],"Выходящий:", out[i], "Okey")
+    start = time.perf_counter()
+    bl = blizko(inputs[i])
+    end = time.perf_counter()
+
+
+    if bl == out[i]:
+        print("Входящий:",inputs[i],"Выходящий:", out[i], "Okey", "Время:",str((end - start)*1000), "мс")
     else:
-        print("Входящий:",inputs[i],"Выходящий:", out[i], "Bad", f"Ожидалось число: {out[i]}")
+        print("Входящий:",inputs[i],"Выходящий:", out[i], "Bad", f"Ожидалось число: {out[i]}", "Время:",str((end - start)*1000), "мс")
+
