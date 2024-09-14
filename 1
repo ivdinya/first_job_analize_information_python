@@ -1,33 +1,45 @@
+
+#воспользуемся бинарным алгоритмом евклида
 def binar(first_chislo, second_chislo):
+#проверяем является ли первое число нулем, елси так, то возвращаем второе число
     if first_chislo == 0:
         return second_chislo
+#проверяме является ли второе число нулем, если так, то возвращаем первое число
     if second_chislo == 0:
         return first_chislo
+#если первое число равно второму числу, то возвращаем первое число
     if first_chislo == second_chislo:
         return first_chislo
+#если второе число равно первому числу, то возвращаем второе число
     if second_chislo == first_chislo:
         return second_chislo
+#если первое число ранво единице,то возвращаем единицу
     if first_chislo == 1:
         return 1
+#если второе число равно единице, то возвращаем 1
     if second_chislo == 1:
         return 1
-
+#еесли первое и второе число являются четными, то возвращаем 2*бинар(первое число деленное на два, второе число деленное на два)
     if (first_chislo & 1) == 0 and (second_chislo & 1) == 0:
         return 2 * binar(first_chislo >> 1, second_chislo >> 1)
-
+# если первое число четное, а второе является не четным, то возвращаем функцию(первое число деленное на два, второе число)
     if (first_chislo & 1) == 0 and (second_chislo & 1) != 0:
         return binar(first_chislo >> 1, second_chislo)
-
+# если второе число не четное, как и второе, то возвращаем функцию(первое число, второе число деленное на два)
     if (first_chislo & 1) != 0 and (second_chislo & 1) == 0:
         return binar(first_chislo, second_chislo >> 1)
-
+# если первое число не четное, как и второе, а также, первое число больше второго, то возвращаем второе число, (первое число минус второе число) деленное на два
     if (first_chislo & 1) != 0 and (second_chislo & 1) != 0 and first_chislo > second_chislo:
         return binar(second_chislo, (first_chislo-second_chislo) >> 1)
-
+# если первое и второе число нечетные, а также второе число больше первого, то возвращаем функцию(второе число - первое число)/2, первое число
     if (first_chislo & 1) != 0 and (second_chislo & 1) != 0 and first_chislo < second_chislo:
         return binar((second_chislo - first_chislo) >> 1, first_chislo)
-
+# наше число десятизначное число
 a = 1234567890
+# цифра 8
 b = 8
+#переменная, которая содержит  результат функции бинар
 c = binar(a,b)
+# вывод результат функции
 print(c)
+
